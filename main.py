@@ -1,7 +1,7 @@
 from fastapi import FastAPI
 from fastapi.staticfiles import StaticFiles
 
-from .routes import router
+from app.routes import router
 
 app = FastAPI(
     title="FitBuddy - AI Fitness Plan Generator",
@@ -9,5 +9,5 @@ app = FastAPI(
     version="1.0.0",
 )
 
-app.mount("/static", StaticFiles(directory="static"), name="static")
+app.mount("/static", StaticFiles(directory="app/static"), name="static")
 app.include_router(router)

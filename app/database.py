@@ -36,7 +36,7 @@ class Base(DeclarativeBase):
 
 
 class User(Base):
-    __tablename__ = "workout_plans"
+    __tablename__ = "users"
 
     id:Mapped[int] = mapped_column(primary_key= True, index= True)
     user_id: Mapped[int] = mapped_column(unique= True, index=True, nullable=False)
