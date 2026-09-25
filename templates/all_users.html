@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FitBuddy - All Users</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 25px;
+            font-family: Arial, sans-serif;
+            background: #f1f5f9;
+            color: #111827;
+        }
+        .container { max-width: 1500px; margin: auto; }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+        }
+        th, td {
+            padding: 12px;
+            border-bottom: 1px solid #e5e7eb;
+            text-align: left;
+            vertical-align: top;
+        }
+        th { background: #2563eb; color: white; }
+        pre {
+            max-width: 430px;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+            font-family: inherit;
+        }
+        a { color: #2563eb; }
+        @media (max-width: 1000px) {
+            body { padding: 10px; }
+            table { font-size: 12px; }
+            pre { max-width: 250px; }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <p><a href="/">← Back to FitBuddy</a></p>
+    <h1>📋 FitBuddy - All Users & Workout Plans</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>User ID</th>
+                <th>Name</th>
+                <th>Age</th>
+                <th>Weight</th>
+                <th>Goal</th>
+                <th>Intensity</th>
+                <th>Original Plan</th>
+                <th>Updated Plan</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for user in users %}
+            <tr>
+                <td>{{ user.user_id }}</td>
+                <td>{{ user.name }}</td>
+                <td>{{ user.age }}</td>
+                <td>{{ user.weight }}</td>
+                <td>{{ user.goal }}</td>
+                <td>{{ user.intensity }}</td>
+                <td><pre>{{ user.original_plan }}</pre></td>
+                <td><pre>{{ user.updated_plan }}</pre></td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="8">No users yet.</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+</body>
+</html>
