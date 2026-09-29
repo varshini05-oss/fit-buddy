@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FitBuddy - AI Workout Generator</title>
+    <style>
+        * { box-sizing: border-box; }
+        body {
+            margin: 0;
+            min-height: 100vh;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #101820, #243b53);
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 30px;
+        }
+        .card {
+            width: 100%;
+            max-width: 620px;
+            background: rgba(20, 25, 30, 0.95);
+            border-radius: 18px;
+            padding: 32px;
+            box-shadow: 0 20px 60px rgba(0,0,0,.35);
+        }
+        h1 { margin-top: 0; text-align: center; }
+        .subtitle { text-align: center; color: #cbd5e1; margin-bottom: 28px; }
+        label { display: block; margin-top: 15px; margin-bottom: 7px; font-weight: 700; }
+        input, select {
+            width: 100%;
+            padding: 12px;
+            border-radius: 10px;
+            border: 1px solid #475569;
+            background: #0f172a;
+            color: #fff;
+        }
+        button {
+            width: 100%;
+            margin-top: 24px;
+            padding: 14px;
+            border: 0;
+            border-radius: 10px;
+            background: #2563eb;
+            color: #fff;
+            font-size: 16px;
+            font-weight: 700;
+            cursor: pointer;
+        }
+        button:hover { opacity: .9; }
+        .admin { text-align: center; margin-top: 18px; }
+        .admin a { color: #93c5fd; }
+    </style>
+</head>
+<body>
+<div class="card">
+    <h1>🏋️ FitBuddy</h1>
+    <p class="subtitle">AI-Powered Personalized Workout Generator</p>
+
+    <form action="/generate-workout" method="post">
+        <label for="username">Name</label>
+        <input id="username" name="username" required>
+
+        <label for="user_id">User ID</label>
+        <input id="user_id" name="user_id" type="number" min="1" required>
+
+        <label for="age">Age</label>
+        <input id="age" name="age" type="number" min="1" max="120" required>
+
+        <label for="weight">Weight (kg)</label>
+        <input id="weight" name="weight" type="number" min="1" step="0.1" required>
+
+        <label for="goal">Fitness Goal</label>
+        <input id="goal" name="goal" placeholder="e.g. muscle gain, weight loss" required>
+
+        <label for="intensity">Workout Intensity</label>
+        <select id="intensity" name="intensity" required>
+            <option value="low">Low</option>
+            <option value="medium" selected>Medium</option>
+            <option value="high">High</option>
+        </select>
+
+        <button type="submit">Generate Plan</button>
+    </form>
+
+    <div class="admin">
+        <a href="/view-all-users">View All Users</a>
+    </div>
+</div>
+</body>
+</html>
